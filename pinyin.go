@@ -114,7 +114,7 @@ func (adp *Adapter) ParseHans(hans, split string, yinType Style) string {
 			words = append(words, string(single))
 			continue
 		}
-		word := adp.ParseSingleHan(single, yinType)
+		word := adp.parseSingleHan(single, yinType)
 		if len(word) > 0 {
 			words = append(words, word)
 		}
@@ -123,7 +123,7 @@ func (adp *Adapter) ParseHans(hans, split string, yinType Style) string {
 }
 
 // ParseSingleHan 解析单个汉字
-func (adp *Adapter) ParseSingleHan(han vowel, yinType Style) (result string) {
+func (adp *Adapter) parseSingleHan(han vowel, yinType Style) (result string) {
 	switch yinType {
 	case Tone:
 		result = adp.tone(han)
